@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <meta charset="utf-8">
+		<title></title>
+	<style>
+			*{
+				padding:0;
+				margin:0;
+				font-family: "微软雅黑";
+			}
+			.container{
+				width:80%;
+				height:1500px;
+				margin:0 auto;
+			}
+			.h5{
+				color:#333;
+				font-size:20px;
+				text-align:center;
+				padding:20px 0;
+			}
+			th{
+				border:1px solid red;
+				padding:10px 0;
+				color:#333;
+				font-weight:100;
+				color:red;
+			}
+			.border{
+				border-right:0;
+			/*	border-bottom: 0;*/
+			}
+			thead{
+				font-weight:600;
+				color:#000;
+			}
+			td{text-align: center;
+				border:1px solid #000;
+				border-right:0;
+				padding:2px 0;
+				border-top:0;
+				color:#333;
+			}
+			.border_1{
+				border-right:1px solid #000;
+			}
+			.table1{
+				margin-bottom: 30px;
+			}
+		</style>
+	</head>
+	<body style="background:#f0f0f0;">
+		<div class="container">
+			<h5 class="h5">性格测试统计</h5>
+                <table width="100%"  border="0" cellspacing="0" cellpadding="0"class="table1" style="margin-bottom:0;">
+				<thead>
+					全部汇总统计：
+				</thead>
+				<tr>
+					<th width="16%" class="border">红色</th>
+                    <th width="16%" class="border">蓝色</th>
+					<th width="16%" class="border">黄色</th>
+					<th width="16%">绿色</th>
+                    <th width="16%">参评人数</th>
+				</tr>
+                <tr>
+                    <td>{$datas.red}</td>
+                    <td>{$datas.blue}</td>
+                    <td>{$datas.yellow}</td>
+                    <td>{$datas.green}</td>
+                    <td class="border_1">{$datas.num}</td>
+                </tr>
+                                
+			</table>
+            <div style="width:100%;margin-bottom: 30px;">
+    
+                <a href="{:U('Home/Admin/gshzs')}" style="float:right;padding:5px 15px;margin-top:10px;background: #F75E2F; color:white;text-decoration: none;">导出Excel</a>
+                       
+            </div>
+
+			<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+				<thead>
+					个人测试结果
+				</thead>
+				<tr >
+					<th width="10%" class="border">姓名</th>
+					<th width="25%">公司名称</th>
+					<th width="14.285%">综合性格</th>
+                    <th width="14.285%">性格判定</th>
+                    <th width="10%">操作</th>
+				</tr>
+                <volist name="resinfo" id="v">
+                    <tr>
+                        <td>{$v.user_name}</td>
+                        <td>{$v.company}</td>
+	    				<td>{$v.result}</td>
+                        <td>{$v.type}</td>
+                        <td class="border_1"><a href="{:U('Home/Admin/deletes', array('id'=>$v['id']))}" onclick="return confirm('确定删除该条记录?')" style="text-decoration:none;">删除</a></td>
+                    </tr>
+                </volist>
+			</table>
+             <div style="width:100%;margin-bottom: 30px;">
+    
+                <a href="{:U('Home/Admin/bmgrs')}" style="float:right;padding:5px 15px;margin-top:10px;background: #F75E2F; color:white;text-decoration: none;">导出Excel</a>
+                       
+            </div>
+		</div>
+            
+	</body>
+</html>
