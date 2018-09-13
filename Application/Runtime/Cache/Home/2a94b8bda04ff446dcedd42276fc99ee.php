@@ -617,13 +617,13 @@
 				alert('请输入名字！')
 				return false;
 			}
-			var myReg = /^[\u4e00-\u9fa5]+$/;
-			if(myReg.test($("input[type=text]").val())) {
-				return true;
-			} else {
-				alert("请输入正确的名字！");
-				return false;
-		};
+//			var myReg = /^[\u4e00-\u9fa5]+$/;
+//			if(myReg.test($("input[type=text]").val())) {
+//				return true;
+//			} else {
+//				alert($("input[type=text]").val());
+//				return false;
+//		};
 				})
 			})
 		function check() {
